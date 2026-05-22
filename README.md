@@ -14,9 +14,7 @@
 
 # Slides
 
-
-[![Abrir Slides](https://img.shields.io/badge/Abrir%20Slides-50132D?style=for-the-badge&logo=googlechat&logoColor=white)](https://chat.google.com/room/AAQABrSevnc/lauvh3VEmBE/lauvh3VEmBE?cls=10)
-
+[![Abrir Slides](https://img.shields.io/badge/Abrir%20Slides-50132D?style=for-the-badge&logo=prezi&logoColor=white)](https://prezi.com/view/JQSHxY38j4XtUce8BGB4/?referral_token=ONzGYFlnB3FN)
 
 ---
 
