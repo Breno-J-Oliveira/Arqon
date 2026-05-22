@@ -375,8 +375,8 @@ O Composer foi utilizado para estruturar melhor o projeto e facilitar a manuten�
 ---
 
 <div align="center">
-# SENAI “A. Jacob Lafer”
 
-Projeto desenvolvido para o curso Técnico em Desenvolvimento de Sistemas — 2026.
+Projeto desenvolvido para o curso Técnico em Desenvolvimento de Sistemas SENAI “A. Jacob Lafer — 2026
+
 </div>
 
