@@ -12,6 +12,12 @@
 
 ---
 
+# Site
+
+[![Acessar Site](https://img.shields.io/badge/Acessar%20Site-50132D?style=for-the-badge&logo=googlechrome&logoColor=white)](http://arquon.infinityfree.io/)
+
+---
+
 # Slides
 
 [![Abrir Slides](https://img.shields.io/badge/Abrir%20Slides-50132D?style=for-the-badge&logo=prezi&logoColor=white)](https://prezi.com/view/JQSHxY38j4XtUce8BGB4/?referral_token=ONzGYFlnB3FN)
@@ -20,7 +26,7 @@
 
 # CÓDIGO
 
-https://drive.google.com/file/d/1_9RuPbCoicBy_kzaWi8E9aLQeXPkF6Al/view?usp=sharing
+[![Abrir Código](https://img.shields.io/badge/Abrir%20Código-50132D?style=for-the-badge&logo=googledrive&logoColor=white)](https://drive.google.com/drive/folders/1fabvDirOg8HdG1J8ab06OXmyaxhUWVdn)
 
 ---
 
@@ -350,11 +356,150 @@ O Composer foi utilizado para estruturar melhor o projeto e facilitar a manuten�
 
 ---
 
+ 
+# Funcionalidades do Site
+ 
+## 1. Autenticação e Conta
+ 
+- Login com e-mail e senha utilizando hash Argon2id
+- Registro de usuário com upload e corte de foto de perfil (Cropper.js)
+- Autenticação stateless via JWT (HS256) com expiração configurável (padrão 2h)
+- Renovação automática de token via `auth-fetch.js`
+- Logout com blacklist de token (`jwt_blacklist`)
+- Recuperação de senha com token por e-mail (forgot/reset password)
+- Alteração de senha autenticada
+- Rate limiting anti brute-force no login (`login_attempts`)
+---
+ 
+## 2. Catálogo de Produtos
+ 
+- Listagem com filtros por categoria, estilo, marca, cor, gênero, status e preço
+- Ordenação por mais recentes, menor ou maior preço
+- Páginas dedicadas: **Masculino**, **Feminino** e **Catálogo Geral**
+- Busca universal por produtos, categorias e marcas (`/api/search`)
+- Paginação com load more e lazy loading de imagens
+- Filtros dinâmicos alimentados por metadados de marcas, categorias, estilos e cores
+---
+ 
+## 3. Página de Detalhes do Produto (PDP)
+ 
+- Galeria de imagens com miniaturas
+- Seleção dinâmica de tamanhos e cores com base no estoque disponível
+- Cálculo automático de valor da diária e caução (2x a diária)
+- Exibição de avaliações e média de estrelas
+- Botões de adicionar ao carrinho e à lista de favoritos (wishlist)
+---
+ 
+## 4. Carrinho e Checkout
+ 
+- Adicionar, remover e atualizar itens (persistência em `carrinho_temp`)
+- Cálculo automático de subtotal, caução e total
+- Aplicação e validação de cupons de desconto
+- Seleção e cadastro de endereço de entrega
+- Preenchimento automático de endereço por CEP via ViaCEP
+- Validação e máscara de CPF
+- Finalização da locação com confirmação do pedido
+---
+ 
+## 5. Perfil do Usuário
+ 
+- Edição de dados pessoais
+- Upload e corte de foto de perfil
+- Histórico completo de locações
+- Lista de favoritos (wishlist)
+- Gerenciamento de endereços com CRUD e definição de endereço padrão
+- Métricas pessoais de uso da plataforma
+---
+ 
+## 6. Painel Administrativo
+ 
+- Dashboard com métricas em tempo real
+- Gráficos de vendas e locações com Chart.js
+- CRUD completo de produtos com upload de imagens, duplicação e alteração de status
+- Gestão de estoque: adicionar itens, alterar status e sincronizar
+- Gerenciamento de usuários (ativar/inativar e alterar nível de acesso)
+- Gestão de marcas e cores (CRUD)
+- Gestão de locações com atualização de status
+- Audit trail e logs do sistema
+- Mapa interativo de logística com Leaflet.js
+- Editor de tema dinâmico com 8 presets de cores
+- Exportação de relatórios
+---
+ 
+## 7. Painel do Fornecedor
+ 
+- Acesso exclusivo para usuários com perfil `VENDOR`
+- Gerenciamento dos próprios produtos (CRUD)
+---
+ 
+## 8. Sistemas Auxiliares
+ 
+- Avaliações de produtos com notas de 1 a 5 estrelas e comentários
+- Cupons de desconto percentuais ou de valor fixo
+- Wishlist (favoritos) com verificação de estado por produto
+- Notificações in-app
+- Programa de fidelidade com níveis: bronze, prata, ouro e platinum
+- Coleções temáticas e celebridades em destaque na home
+- Toast notifications globais
+- Animações de scroll reveal
+---
+ 
+## 9. Telas do Sistema
+ 
+| Página | Arquivo | Descrição |
+|---|---|---|
+| **Home** | `public/index.html` | Landing com hero, marquee, new drop, como funciona, categorias, coleção limitada, celebridades, sustentabilidade, sobre, FAQ e newsletter |
+| **Masculino** | `public/masculino.html` | Catálogo filtrado por gênero masculino |
+| **Feminino** | `public/feminino.html` | Catálogo filtrado por gênero feminino |
+| **Catálogo Geral** | `public/catalogo.html` | Catálogo universal com todos os filtros |
+| **Produto (PDP)** | `public/produto.html` | Detalhes completos do produto |
+| **Login / Registro** | `public/login.html` | Autenticação e cadastro com avatar |
+| **Perfil** | `public/profile.html` | Área do usuário logado |
+| **Checkout** | `public/checkout.html` | Carrinho, endereço, cupom e finalização |
+| **Admin** | `public/admin.html` | Painel administrativo completo |
+| **Fornecedor** | `public/fornecedor.html` | Painel do fornecedor (VENDOR) |
+| **Favoritos** | `public/favoritos.html` | Redireciona para a wishlist no perfil |
+| **404** | `public/404.html` | Página de erro personalizada |
+ 
+---
+ 
+## 10. Componentes Modulares
+ 
+| Componente | Arquivo | Função |
+|---|---|---|
+| **Header** | `header.html` + `header.js` | Navegação, busca, menu mobile, estado logado/deslogado |
+| **Footer** | `footer.html` | Rodapé com links e newsletter |
+| **Botão Carrinho** | `botaocarrinho.html` + `botaocarrinho.js` | Carrinho flutuante com contador |
+| **Main** | `main.html` | Bloco de conteúdo reutilizável |
+ 
+---
+ 
+## 11. Níveis de Acesso
+ 
+| ID | Role | Descrição |
+|---|---|---|
+| 1 | `MEMBER` | Usuário comum (cliente) |
+| 2 | `VAULT_MGMT` | Gestão de cofre/estoque |
+| 3 | `PRIORITY_ACCESS` | Acesso prioritário |
+| 4 | `TOTAL_CONTROL` | Administrador total |
+| — | `VENDOR` | Fornecedor (acesso ao painel próprio) |
+ 
+---
+ 
+## 12. Credenciais de Teste
+ 
+| Perfil | E-mail | Senha |
+|---|---|---|
+| Admin | `admin@arqon.com` | `admin123` |
+| Membro | `user@arqon.com` | `user123` |
+ 
+---
+
 ## Página Principal
 
 <div align="center">
 
-
+<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/a58ae6f6-6a47-42c7-8a0a-f7f477394557" />
 
 </div>
 
