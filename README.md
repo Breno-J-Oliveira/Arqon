@@ -22,10 +22,6 @@
 
 <br>
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!-- 🔗 BOTÃO DE ACESSO AO SITE AO VIVO (InfinityFree)             -->
-<!-- Substitua a URL abaixo pelo link real do seu site hospedado. -->
-<!-- ════════════════════════════════════════════════════════════ -->
 <h2 align="center">🌐 Acesse o Site Online</h2>
 
 <p align="center">
@@ -46,8 +42,6 @@
 <p align="center">
   <sub>👆 <em>Clique no botão dourado para abrir a plataforma ARQON — THE VAULT no navegador.</em></sub>
 </p>
-
-> ⚠️ **Importante:** troque `https://SEU-SITE.infinityfreeapp.com` pela URL real do seu domínio no **InfinityFree** após o deploy (em 3 lugares: o botão dourado, o badge "Hospedado em" e a seção [Acesso ao Site Online](#-acesso-ao-site-online)).
 
 ---
 
@@ -88,16 +82,14 @@ A plataforma está hospedada gratuitamente no **InfinityFree**. Clique no botão
 
 | Item | Valor |
 |---|---|
-| **URL do Site** | `https://SEU-SITE.infinityfreeapp.com` |
+| **URL do Site** | `https://arquon.infinityfree.io/index.html` |
 | **Hospedagem** | InfinityFree (PHP + MySQL gratuito) |
 | **Login Admin** | `admin@arqon.com` / `admin123` |
 | **Login Membro** | `user@arqon.com` / `user123` |
 
-> Após publicar no InfinityFree, substitua `SEU-SITE.infinityfreeapp.com` pela sua URL real em todos os links deste README.
-
 ---
 
-## � Contexto Acadêmico do Projeto
+## 🎓 Contexto Acadêmico do Projeto
 
 <p align="center">
   <img src="https://img.shields.io/badge/PROJETO-2º%20TERMO-E7B93F?style=for-the-badge&labelColor=0C0716" alt="Projeto 2º Termo">
@@ -127,10 +119,10 @@ Vivemos em uma era onde a **personalização e a flexibilidade** transformam a f
 | Interface responsiva | ✅ | Layout responsivo para desktop, tablet e mobile |
 | Tela de Login com mensagens de erro | ✅ | `login.html` com validação e feedback |
 | Barra superior "Bem-vindo, [usuário]" + Sair | ✅ | Header dinâmico para usuário logado |
-| Persistência de dados | ✅ | Evoluído de JSON para **MySQL + PDO** (mais robusto e seguro) |
+| Persistência de dados | ✅ | Implementada com **MySQL + PDO** para máxima robustez e segurança |
 | Validação de dados de entrada / segurança | ✅ | Prepared statements, Argon2id, JWT, rate limiting, CORS |
 
-> 💡 **Nota técnica:** a atividade sugeria persistência em arquivos JSON e estilização com Bootstrap como referência mínima. O ARQON evoluiu para um stack mais robusto (**MySQL/PDO** + **Design System CSS próprio** + **Font Awesome**), elevando segurança, escalabilidade e qualidade visual além do escopo básico.
+O projeto adota **MySQL/PDO** como camada de persistência, combinado com um **Design System CSS proprietário** e **Font Awesome**, elevando segurança, escalabilidade e qualidade visual além dos requisitos mínimos estabelecidos.
 
 ### Entregas por Sprint
 
@@ -150,7 +142,7 @@ Vivemos em uma era onde a **personalização e a flexibilidade** transformam a f
 
 ---
 
-## �🏛 Sobre o Projeto
+## 🏛 Sobre o Projeto
 
 **ARQON — THE VAULT** é uma plataforma web completa de **locação de roupas e artefatos de luxo sustentáveis**. O conceito central é tratar cada peça como um artefato exclusivo guardado em um cofre digital, oferecendo ao usuário uma experiência de aluguel sofisticada, segura e fluida.
 
@@ -167,8 +159,6 @@ O projeto é um **full-stack monolítico** construído sem frameworks pesados: u
 ---
 
 ## 📸 Demonstração e Capturas de Tela
-
-> **Nota:** As imagens abaixo ficam na pasta `capturas/` na raiz do projeto. Basta colocar os arquivos com os nomes indicados (ou ajustar os caminhos) que eles aparecerão automaticamente aqui.
 
 ### 🏠 Home / Landing Page
 <p align="center">
@@ -637,6 +627,17 @@ Base: `http://localhost/PROJETO-ARQUON/index.php/api`
 
 Banco MySQL `arqon` (InnoDB, utf8mb4) organizado em **7 módulos** com 30+ tabelas. Schema completo em `docs/banco_arquon.sql` e diagrama em `docs/Mapa_Banco_arquon.png`.
 
+### Diagrama do Banco de Dados
+
+<p align="center">
+  <!-- Substitua pelo caminho real da foto digitalizada do banco -->
+  <img src="./docs/foto_banco.jpg" alt="Foto do Banco de Dados (físico)" width="400">
+  <!-- Substitua pelo caminho real do diagrama digital -->
+  <img src="./docs/Mapa_Banco_arquon.png" alt="Diagrama Digital do Banco de Dados" width="400">
+</p>
+
+> Coloque a foto física do banco no caminho `docs/foto_banco.jpg` e o diagrama digital em `docs/Mapa_Banco_arquon.png`.
+
 ### Módulo 1 — IAM (Identidade e Acessos)
 `niveis_acesso`, `usuarios`, `usuarios_enderecos`, `fornecedores`, `api_keys`
 
@@ -661,7 +662,7 @@ Banco MySQL `arqon` (InnoDB, utf8mb4) organizado em **7 módulos** com 30+ tabel
 ### Tabelas Complementares
 `carrinho_temp`, `avaliacoes`, `cupons`, `configuracoes_tema`, `password_resets`, `login_attempts`, `fidelidade`, `notificacoes`, `contatos`, `celebridades`, `celebridade_produtos`, `colecoes`, `colecao_produtos`
 
-> **Observação importante:** a coluna real de imagem do produto é `foto_url` (apenas o nome do arquivo). As imagens ficam em `public/uploads/` e são prefixadas no front com `/PROJETO-ARQUON/public/uploads/`.
+A coluna de imagem do produto é `foto_url` (apenas o nome do arquivo). As imagens ficam em `public/uploads/` e são prefixadas no front-end com `/PROJETO-ARQUON/public/uploads/`.
 
 ---
 
@@ -739,15 +740,11 @@ PROJETO-ARQUON/
 │   ├── favoritos.html / 404.html
 │   ├── index.js                     # Bootstrapper compartilhado
 │   └── theme-dynamic.css
-├── setup/                           # Scripts de instalação e seeds
-│   ├── setup.php / full_setup.php / setup_db.php
-│   ├── seed_full_data.php / seed_luxury_stock.php / seed_mais_dados*.php
-│   └── migrate_genero.php
 ├── docs/                            # Documentação, SQL e diagramas
 │   ├── banco_arquon.sql / drop_tables.sql / seeds.sql
 │   ├── Mapa_Banco_arquon.png / modelo_banco.txt
 │   └── Claude/ Importante/ Apresentação/
-├── capturas/                        # ◄ Coloque aqui as capturas de tela do README
+├── capturas/                        # Capturas de tela do README
 ├── config.php                       # Configuração global (lê .env)
 ├── database.php                     # Conexão PDO Singleton
 ├── index.php                        # Roteador central da API
@@ -756,120 +753,6 @@ PROJETO-ARQUON/
 ├── DEPLOY.md                        # Guia de deploy
 └── README.md
 ```
-
----
-
-## 🚀 Instalação e Configuração
-
-### Pré-requisitos
-- **XAMPP** (ou Apache + PHP 8.2+ + MySQL 8.0)
-- PHP com extensões `pdo_mysql` e `mbstring` habilitadas
-
-### Passo a Passo
-
-1. **Clone/coloque o projeto** em `c:\xampp\htdocs\PROJETO-ARQUON`.
-
-2. **Configure o `.env`** (copie de `.env.example`):
-   ```env
-   ENVIRONMENT=development
-   DB_HOST=localhost
-   DB_NAME=arqon
-   DB_USER=root
-   DB_PASS=
-   JWT_SECRET_KEY=sua_chave_secreta_aqui
-   JWT_EXPIRATION=7200
-   ADMIN_EMAIL=admin@arqon.com
-   BASE_URL=http://localhost/PROJETO-ARQUON/
-   ```
-
-3. **Inicie Apache e MySQL** no painel do XAMPP.
-
-4. **Crie e popule o banco** executando o setup:
-   ```
-   http://localhost/PROJETO-ARQUON/setup/setup.php
-   ```
-   Ou importe `docs/banco_arquon.sql` + `docs/seeds.sql` no phpMyAdmin.
-
-5. **Popule dados de exemplo** (opcional):
-   ```
-   http://localhost/PROJETO-ARQUON/setup/seed_full_data.php
-   http://localhost/PROJETO-ARQUON/setup/seed_luxury_stock.php
-   ```
-
-6. **Acesse o site:**
-   ```
-   http://localhost/PROJETO-ARQUON/public/index.html
-   ```
-
-7. **Faça login** com `admin@arqon.com` / `admin123`.
-
----
-
-## 🌐 Deploy no InfinityFree
-
-O **InfinityFree** oferece hospedagem gratuita com suporte a **PHP** e **MySQL**, ideal para este projeto. Consulte também o `DEPLOY.md`.
-
-### Passo a Passo
-
-1. **Crie uma conta** em [infinityfree.net](https://infinityfree.net) e crie um novo site (ex.: `seu-site.infinityfreeapp.com`).
-
-2. **Crie o banco de dados** no painel (MySQL Databases) e anote `host`, `nome do banco`, `usuário` e `senha`.
-
-3. **Importe o banco** via phpMyAdmin do InfinityFree:
-   - Importe `docs/banco_arquon.sql`.
-   - Em seguida importe `docs/seeds.sql` (dados iniciais).
-
-4. **Ajuste o `.env`** para produção:
-   ```env
-   ENVIRONMENT=production
-   DB_HOST=sqlXXX.infinityfree.com
-   DB_NAME=epiz_XXXXXXXX_arqon
-   DB_USER=epiz_XXXXXXXX
-   DB_PASS=sua_senha_do_banco
-   JWT_SECRET_KEY=chave_forte_e_unica
-   JWT_EXPIRATION=7200
-   ALLOWED_ORIGIN=https://seu-site.infinityfreeapp.com
-   BASE_URL=https://seu-site.infinityfreeapp.com/
-   ```
-
-5. **Envie os arquivos** para a pasta `htdocs` via o **File Manager** ou **FTP** (FileZilla):
-   - Use os dados de FTP fornecidos no painel do InfinityFree.
-   - Suba todo o conteúdo do projeto para `htdocs/`.
-
-6. **Ajuste os caminhos absolutos** se necessário:
-   - Em produção, os prefixos `/PROJETO-ARQUON/public/uploads/` devem apontar para o caminho correto do seu domínio.
-
-7. **Garanta as permissões** da pasta `public/uploads/` para permitir upload de imagens.
-
-8. **Acesse o site** em `https://seu-site.infinityfreeapp.com` e faça login com as credenciais de teste.
-
-### Checklist de Produção
-- [ ] `ENVIRONMENT=production` (desliga `display_errors`).
-- [ ] `ALLOWED_ORIGIN` e `BASE_URL` apontando para o domínio real.
-- [ ] `JWT_SECRET_KEY` forte e única.
-- [ ] `mod_rewrite` e `mod_headers` ativos (já configurado no `.htaccess`).
-- [ ] Headers de segurança ativos (já no `.htaccess`).
-- [ ] `.env` e backups protegidos pelo `.gitignore`.
-- [ ] Banco importado e populado.
-- [ ] Pasta `uploads/` com permissão de escrita.
-
-> 💡 **Dica:** o InfinityFree pode exigir o uso do banco MySQL próprio dele (não aceita conexões externas). Sempre use o `DB_HOST` informado no painel.
-
----
-
-## 📤 Como Publicar no GitHub
-
-```bash
-# Na raiz do projeto
-git init
-git add .
-git commit -m "ARQON - THE VAULT: plataforma de locação de luxo"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/arqon-vault.git
-git push -u origin main
-```
-
-> ⚠️ O `.gitignore` já protege o `.env` e backups. **Nunca** suba senhas reais ou a `JWT_SECRET_KEY` de produção para o GitHub.
 
 ---
 
