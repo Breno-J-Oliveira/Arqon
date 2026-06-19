@@ -651,11 +651,6 @@ Banco MySQL `arqon` (InnoDB, utf8mb4) organizado em **7 módulos** com 30+ tabel
 ### Diagrama do Banco de Dados
 
 <p align="center">
-  <img src="./docs/foto_banco.jpg" alt="Banco de Dados Físico" width="400">
-  <img src="./docs/Mapa_Banco_arquon.png" alt="Diagrama Digital" width="400">
-</p>
-
-<p align="center">
   <img src="https://github.com/user-attachments/assets/089a17f1-6bde-40c8-8f7a-069a8e443483" width="300" alt="Modelagem 1">
   <img src="https://github.com/user-attachments/assets/0f581934-c322-457d-a2f6-7f5391d0a711" width="300" alt="Modelagem 2">
 </p>
